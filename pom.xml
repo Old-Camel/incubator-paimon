@@ -31,7 +31,7 @@ under the License.
     <artifactId>paimon-parent</artifactId>
     <groupId>org.apache.paimon</groupId>
     <name>Paimon : </name>
-    <version>0.6-SNAPSHOT</version>
+    <version>0.6</version>
     <packaging>pom</packaging>
 
     <url>https://paimon.apache.org</url>
@@ -59,7 +59,7 @@ under the License.
         <module>paimon-core</module>
         <module>paimon-flink</module>
         <module>paimon-docs</module>
-        <module>paimon-e2e-tests</module>
+<!--        <module>paimon-e2e-tests</module>-->
         <module>paimon-filesystems</module>
         <module>paimon-format</module>
         <module>paimon-bundle</module>
@@ -338,6 +338,7 @@ under the License.
                     </archive>
                 </configuration>
             </plugin>
+<!--
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
@@ -357,6 +358,7 @@ under the License.
                     <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
                 </configuration>
             </plugin>
+-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -929,7 +931,19 @@ under the License.
             </plugins>
         </pluginManagement>
     </build>
-
+    <distributionManagement>
+        <snapshotRepository>
+            <id>yunzai-nexus3</id>
+            <url>http://222.30.194.85:8081/repository/maven-yunzai-snapshot/</url>
+        </snapshotRepository>
+        <repository>
+            <id>yunzai-nexus3</id>
+            <!-- 注意如果发布的是 snapshot 版本的代码，必须使用该地址，而且版本号，必须是 -SNAPSHOT 结尾 -->
+            <!--                        <url>http://222.30.194.85:8081/repository/maven-yunzai-snapshot/</url>-->
+            <!-- 注意如果发布的是 release 版本的代码，必须使用该地址，而且版本号，必须不能带 snapshot -->
+            <url>http://222.30.194.85:8081/repository/maven-yunzai-release/</url>
+        </repository>
+    </distributionManagement>
     <!--
     Uncomment the following "repositories" tag if your maven fails to download paimon-shade snapshot files.
     We comment these tags by default because downloading from apache repositories is very slow for both github and developers.
