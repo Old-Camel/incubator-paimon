@@ -64,8 +64,8 @@ under the License.
         <module>paimon-format</module>
         <module>paimon-bundle</module>
         <module>paimon-hive</module>
-        <module>paimon-spark</module>
-        <module>paimon-test-utils</module>
+      <!--     <module>paimon-spark</module>
+        <module>paimon-test-utils</module>-->
     </modules>
 
     <properties>
